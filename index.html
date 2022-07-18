@@ -8,8 +8,16 @@
     </body>
     <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-    <script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
         const root = document.getElementById("root");
+        // 브라우저가 JSX를 인식하지 못해서 오류가 남 => 바벨로 변환작업 필요
+        const Title = (
+            <h3 id="title" onMouseEnter={()=>console.log('mouse enter')}>
+                Hello I'm a span
+            </h3>
+        );
+        /*
         const h3 = React.createElement(
             "h3",
             {
@@ -18,6 +26,17 @@
             },
             "Hello I'm a span"
         );
+        */
+        const Button = (
+            <button 
+                style={{backgroundColor:"tomato",}}
+                onClick={()=>console.log("im clicked")}
+            >
+            Click me
+            </button>
+        );
+
+        /*
         const btn = React.createElement(
             "button",
             {
@@ -25,7 +44,8 @@
             },
             "Click me"
         );
-        const container = React.createElement("div",null,[h3,btn]);
+        */
+        const container = React.createElement("div",null,[Title,Button]);
         ReactDOM.render(container,root);
     </script>
 </html>
