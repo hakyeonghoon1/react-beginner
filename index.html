@@ -47,12 +47,28 @@
         */
         
         //const container = React.createElement("div",null,[Title,Button]);
-        const Container = () => (
-            <div>
-                <Title/>
-                <Button/>
-            </div>
-        );
-        ReactDOM.render(<Container/>,root);
+
+        let counter = 0;
+        function countUp(){
+            counter = counter + 1;
+        }
+
+        function App() {
+            const [counter,setCounter] = React.useState(0);
+            const onClick =()=>{
+                setCounter(counter +1);
+            };
+            return(
+                <div>
+                    {/*
+                    <Title/>
+                    <Button/>
+                    */}
+                    <h3>Total Click:{counter}</h3>
+                    <button onClick={onClick}>Click me</button>
+                </div>
+            );
+        };
+        ReactDOM.render(<App/>,root);
     </script>
 </html>
