@@ -48,27 +48,38 @@
         
         //const container = React.createElement("div",null,[Title,Button]);
 
-        let counter = 0;
+         /* 0;
         function countUp(){
             counter = counter + 1;
         }
-
+        */
         function App() {
+            /*
             const [counter,setCounter] = React.useState(0);
             const onClick =()=>{
                 //setCounter(counter +1);
-                
+
                 //현재의 값을 업데이트 할 때,
                 setCounter((current)=> current+1);
             };
+            */
+           const [minutes,setMinutes] = React.useState();
+           const onChange =(event)=>{
+               //console.log(event.target.value);
+               setMinutes(event.target.value);
+           }
             return(
                 <div>
                     {/*
                     <Title/>
                     <Button/>
                     */}
-                    <h3>Total Click:{counter}</h3>
-                    <button onClick={onClick}>Click me</button>
+                    <h1 className="hi">Super Converter</h1>
+                    <label htmlFor="minutes">Minutes</label>
+                    <input value={minutes} id="minutes" placeholder="Minutes" type="number" onChange={onChange}/>
+                    <h4>You want to convert {minutes}</h4>
+                    <label htmlFor="hours">hours</label>
+                    <input id="hours" placeholder="Hours" type="number"/>
                 </div>
             );
         };
